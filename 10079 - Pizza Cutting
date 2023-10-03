@@ -1,0 +1,16 @@
+10079 - Pizza Cutting
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long int n;
+
+    while(cin>>n){
+        if(n<0) break;
+
+        long long int ans = ((n*(n+1))/2)+1;
+
+        cout<<ans <<endl;
+    }
+    return 0;
+}
