@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int a, b, c;
+
+    while(true){
+        cin>>a >>b >>c;
+        int max, min1, min2;
+
+        if(a==0 && b==0 && c==0)
+            break;
+        
+        if(a>b && a>c){
+            max = a;
+            min1=b;
+            min2=c;
+        }
+        else if(b>a && b>c){
+            max = b;
+            min1=a;
+            min2=c;
+        }
+        else if(c>a && c>b){
+            max = c;
+            min1=b;
+            min2=a;
+        }
+
+        int ans1 = (max*max);
+        int ans2 = (min1*min1)+(min2*min2);
+        if(ans1 == ans2)
+            cout<<"right" <<endl;
+        else
+            cout<<"wrong" <<endl;
+    }
+    return 0;
+}
