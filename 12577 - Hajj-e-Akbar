@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int count=1;
+    string in;
+
+    while(true){
+        cin>>in;
+
+        if(in == "*")
+            break;
+        else if(in == "Hajj")
+            cout<<"Case " <<count <<": Hajj-e-Akbar" <<endl;
+        else if(in == "Umrah")
+            cout<<"Case " <<count <<": Hajj-e-Asghar" <<endl;
+        
+        count++;
+    }
+    return 0;
+}
