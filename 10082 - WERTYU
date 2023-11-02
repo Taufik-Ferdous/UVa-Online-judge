@@ -1,108 +1,55 @@
-#include <bits/stdc++.h>
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 02-November-2023  16:15:11
+**/
+#include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    string line;
-    while (getline(cin, line))
-    {
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-        for (int i=0; i<line.length(); i++){
+#define ll long long
 
-            if (line[i] == ' ')
-                line[i] = ' ';
-            else if (line[i] == '1')
-                line[i] = '`';
-            else if (line[i] == '2')
-                line[i] = '1';
-            else if (line[i] == '3')
-                line[i] = '2';
-            else if (line[i] == '4')
-                line[i] = '3';
-            else if (line[i] == '5')
-                line[i] = '4';
-            else if (line[i] == '6')
-                line[i] = '5';
-            else if (line[i] == '7')
-                line[i] = '6';
-            else if (line[i] == '8')
-                line[i] = '7';
-            else if (line[i] == '9')
-                line[i] = '8';
-            else if (line[i] == '0')
-                line[i] = '9';
-            else if (line[i] == '-')
-                line[i] = '0';
-            else if (line[i] == '=')
-                line[i] = '-';
+#define fo(i,n) for(ll i=0; i<n; ++i)
+#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
+#define deb(x) cout<<#x <<"=" <<x <<endl
+#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
+#define pb push_back
+#define mp make_pair
+#define F first
+#define S second
+#define all(x) x.begin(), x.end()
+#define allr(x) x.rbegin(), x.rend()
+#define endl "\n"
 
+typedef pair<ll,ll>      pl;
+typedef vector<ll>       vl;
 
-            else if (line[i] == 'W')
-                line[i] = 'Q';
-            else if (line[i] == 'E')
-                line[i] = 'W';
-            else if (line[i] == 'R')
-                line[i] = 'E';
-            else if (line[i] == 'T')
-                line[i] = 'R';
-            else if (line[i] == 'Y')
-                line[i] = 'T';
-            else if (line[i] == 'U')
-                line[i] = 'Y';
-            else if (line[i] == 'I')
-                line[i] = 'U';
-            else if (line[i] == 'O')
-                line[i] = 'I';
-            else if (line[i] == 'P')
-                line[i] = 'O';
-            else if (line[i] == '[')
-                line[i] = 'P';
-            else if (line[i] == ']')
-                line[i] = '[';
-            else if (line[i] == '\\')
-                line[i] = ']';
+const int mod = 1e9+7;
+const ll N = 1e7+10;
+//====================================
 
-            else if (line[i] == 'S')
-                line[i] = 'A';
-            else if (line[i] == 'D')
-                line[i] = 'S';
-            else if (line[i] == 'F')
-                line[i] = 'D';
-            else if (line[i] == 'G')
-                line[i] = 'F';
-            else if (line[i] == 'H')
-                line[i] = 'G';
-            else if (line[i] == 'J')
-                line[i] = 'H';
-            else if (line[i] == 'K')
-                line[i] = 'J';
-            else if (line[i] == 'L')
-                line[i] = 'K';
-            else if (line[i] == ';')
-                line[i] = 'L';
-            else if (line[i] == '\'')
-                line[i] = ';';
-
-            else if (line[i] == 'X')
-                line[i] = 'Z';
-            else if (line[i] == 'C')
-                line[i] = 'X';
-            else if (line[i] == 'V')
-                line[i] = 'C';
-            else if (line[i] == 'B')
-                line[i] = 'V';
-            else if (line[i] == 'N')
-                line[i] = 'B';
-            else if (line[i] == 'M')
-                line[i] = 'N';
-            else if (line[i] == ',')
-                line[i] = 'M';
-            else if (line[i] == '.')
-                line[i] = ',';
-            else if (line[i] == '/')
-                line[i] = '.';
+void solve(){
+    string com="`1234567890-=QWERTYUIOP[]\\ASDFGHJKL;'ZXCVBNM,./";
+    string s;
+    while(getline(cin, s)){
+        for(ll i=0; i<s.length(); ++i){
+            if(s[i]==' ' || s[i]=='\n'){
+                cout<<s[i];
+                continue;
+            }
+            ll dum = find(all(com), s[i]) - com.begin();
+            cout<<(char)com[dum-1];
         }
-        cout<<line << endl;
+        cout<<endl;
     }
-    return 0;
+}
+
+
+int main(){
+    // optimize();
+
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
 }
