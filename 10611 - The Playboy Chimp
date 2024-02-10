@@ -1,55 +1,38 @@
 /**
  *    Author: lulu (Tasmir_)
- *    Created:  02-September-2023  14:32:50
+ *    Created: 10-February-2024  20:16:10
 **/
 #include<bits/stdc++.h>
 using namespace std;
 
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-#define ll long long 
+#define ll long long
 
-#define fo(i,n) for(ll i=0; i<n; ++i)
-#define Fo(i,k,n) for(ll i=k;k<n?i<n:i>=n;i<n?++i:--i)
-#define deb(x) cout<<#x <<"=" <<x <<endl
-#define deb2(x,y) cout<<#x <<"=" <<x <<" " <<#y <<"=" <<y <<endl
-#define pb push_back
-#define mp make_pair
-#define F first
-#define S second
-#define all(x) x.begin(), x.end()
-#define endl "\n"
-
-typedef pair<ll,ll>      pl;
-typedef vector<ll>       vl;
-
-const int mod = 1e9+7;
-const ll N = 1e7+10;
 //====================================
 
 void solve(){
     ll n; cin>>n;
-    vl v(n);
+    vector<ll> v(n);
     for(auto &i: v) cin>>i;
+
     ll q; cin>>q;
     while(q--){
-        ll low=0, high=0;
-        ll a; cin>>a;
-        fo(i,n){
-            if(a>v[i]) low=v[i];
-            else break;
+        ll dum; cin>>dum;
+        ll p=-1, s=-1;
+        bool f=1;
+        for(auto i: v){
+            if(i>dum && f){
+                s=i;
+                f=0;
+            }
+            if(i<dum){
+                p=i;
+            }
         }
-        Fo(i,n-1,0){
-            if(a<v[i]) high=v[i];
-            else break;
-        }
-
-        if(low!=0) cout<<low;
-        else cout<<'X';
-        cout<<' ';
-        if(high!=0) cout<<high;
-        else cout<<'X';
-        cout<<endl;
+        if(p==-1) cout<<"X " <<s <<'\n';
+        else if(s==-1) cout<<p <<" X" <<'\n';
+        else cout<<p <<' ' <<s <<'\n';
     }
 }
 
