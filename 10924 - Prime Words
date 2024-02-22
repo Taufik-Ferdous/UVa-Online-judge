@@ -1,0 +1,48 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 13-February-2024  12:59:46
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+ll N = 5000;
+vector<bool> prime(N+1, 1);
+
+void lulu(){
+    prime[0]=0;
+    for(ll i=2; i<=N; ++i){
+        if(prime[i]){
+            for(ll j=i*2; j<=N; j+=i) prime[j]=0;
+        }
+    }
+}
+
+void solve(){
+    string s;
+    while(cin>>s){
+        ll sum = 0;
+        for(auto i: s){
+            if(islower(i)) sum+=(i-'a'+1);
+            else sum+=(i-'A'+27);
+        }
+        // cout<<sum <<' ';
+        if(prime[sum]) cout<<"It is a prime word." <<'\n';
+        else cout<<"It is not a prime word." <<'\n';
+    }
+}
+
+
+int main(){
+    // optimize();
+    lulu();
+    ll t=1;
+    // cin>>t;
+    while(t--)
+        solve();
+}
