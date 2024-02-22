@@ -1,0 +1,52 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 08-February-2024  01:13:33
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+ll N = 1e7+10;
+vector<bool> prime(N, 1);
+
+void lulu(){
+    prime[0]=0, prime[1]=0;
+    for(ll i=2; i<N; ++i){
+        for(ll j=i*i; j<N; j+=i) if(prime[j]) prime[j]=0;
+    }
+}
+
+ll cs=1;
+
+void solve(){
+    string s; cin>>s;
+    map<char, ll> m;
+    vector<char> v;
+    for(auto i: s) m[i]++;
+    bool f=1;
+    cout<<"Case " <<cs++ <<": ";
+    for(auto i: m){
+        if(prime[i.second]){
+            cout<<i.first;
+            f=0;
+        }
+    }
+    if(f) cout<<"empty";
+    cout<<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    lulu();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
